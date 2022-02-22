@@ -13,8 +13,6 @@ ZSH_THEME="robbyrussell"
 
 plugins=(
   git
-  zsh-syntax-highlighting
-  zsh-autosuggestions
   copyfile
   copydir
   frontend-search
@@ -23,7 +21,7 @@ plugins=(
   z
 )
 
-source $ZSH/.zshrc
+source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
 
@@ -38,3 +36,5 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 alias k="kubectl"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
