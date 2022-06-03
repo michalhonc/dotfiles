@@ -27,6 +27,7 @@ export EDITOR='nvim'
 
 alias vim="nvim"
 alias vi="nvim"
+alias v="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -38,3 +39,8 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 alias k="kubectl"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+eval "$(rbenv init -)"
+alias pod='arch -x86_64 pod'
+
+# Added by Amplify CLI binary installer
+export PATH="$HOME/.amplify/bin:$PATH"
