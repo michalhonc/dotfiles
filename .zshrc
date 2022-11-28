@@ -41,6 +41,8 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 eval "$(rbenv init -)"
 alias pod='arch -x86_64 pod'
-
-# Added by Amplify CLI binary installer
-export PATH="$HOME/.amplify/bin:$PATH"
+alias gsync='git-auto-sync sync'
+alias n='v ~/git/personal/notes'
+alias c='pbcopy'
+alias p='pbpaste'
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
