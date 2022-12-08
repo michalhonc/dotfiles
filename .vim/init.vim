@@ -18,10 +18,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'w0rp/ale'
     Plug 'jason0x43/vim-js-indent'
     Plug 'Quramy/vim-js-pretty-template'
+    Plug 'andrewradev/splitjoin.vim'
     "Plug 'mxw/vim-jsx'
     Plug 'jparise/vim-graphql'
-    " Plug 'pantharshit00/vim-prisma'
+    Plug 'pantharshit00/vim-prisma'
     "Plug 'sheerun/vim-polyglot'
+    Plug 'tomlion/vim-solidity'
+    Plug 'ryanolsonx/vim-xit'
     " Svelte
     Plug 'evanleck/vim-svelte', {'branch': 'main'}
     " Find
@@ -36,7 +39,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     "" Files
     Plug 'scrooloose/nerdtree'
-    Plug 'scrooloose/nerdcommenter'
+    Plug 'tpope/vim-commentary'
+    Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     " Visuals
     "Plug 'crusoexia/vim-monokai' Modified config is in /nvim/colors
     Plug 'cormacrelf/vim-colors-github'
@@ -65,6 +70,7 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let g:NERDTreeWinPos = "right"
 
 " Close NERDTree if is only tab
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif 
@@ -94,6 +100,19 @@ let g:NERDToggleCheckAllLines = 1
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  context_commentstring = {
+    enable = true,
+    commentary_integration = {
+      -- change default mapping
+      Commentary = 'g/',
+      -- disable default mapping
+      CommentaryLine = false,
+    },
+  }
+}
+EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Git
@@ -141,8 +160,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|build'
 " Syntax
 
 " Intellisense
-" https://medium.com/vim-drops/javascript-autocompletion-on-vim-4fea7f6934e2
-"filetype plugin on
+kc
 "set omnifunc=syntaxcomplete#Complete
 let g:qf_modifiable = 1
 " Allow JSX in .js files
@@ -152,7 +170,7 @@ let g:javascript_plugin_flow = 1
 
 set t_Co=256  " vim-monokai now only support 256 colours in terminal.
 
-let g:lightline = {}
+let g:lightline = { 'colorscheme': 'michalhonc' }
 
 let g:lightline.component_expand = {
       \  'linter_checking': 'lightline#ale#checking',
@@ -173,7 +191,7 @@ let g:lightline.component_function = {
 \ }
 
 let g:lightline.active = {
-\   'left': [[ 'mode', 'paste', 'gitbranch', 'readonly', 'filename', 'modified' ]],
+\   'left': [[ 'mode', 'gitbranch', 'readonly', 'filename', 'modified' ]],
 \   'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]],
 \ }
 
@@ -210,13 +228,13 @@ let g:ale_linters_ignore = {
 set shortmess=at
 set cmdheight=1
 
-"colorscheme sublimemonokai
 colorscheme monokai
+" colorscheme sublimemonokai
 " colorscheme github
 
 " if you use airline / lightline
-let g:airline_theme = "github"
-let g:lightline = { 'colorscheme': 'github' }
+" let g:airline_theme = "github"
+" let g:lightline = { 'colorscheme': 'github' }
 
 "autocmd FileType typescriptreact colorscheme desert
 "autocmd FileType typescript colorscheme desert
@@ -286,8 +304,10 @@ nmap s <Plug>(easymotion-s2)
 noremap <silent> <F4> :let @+=expand("%")<CR>
 
 " Save with space
-nnoremap <leader> :update<CR>
+" nnoremap <leader> :update<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
 nnoremap <leader>f :ALEFix<CR>
 
 noremap <silent> <F1> :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')),' ')<cr>
+nnoremap <leader>c <cmd>lua require('ts_context_commentstring.internal').update_commentstring()<cr>
