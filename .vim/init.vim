@@ -200,7 +200,8 @@ let g:lightline.active = {
 autocmd FileType qf setlocal wrap
 let g:ale_linters = {
   \ 'javascript': ['eslint'],
-  \ 'typescript': ['eslint'],
+  \ 'typescript': ['eslint', 'tsserver', 'typecheck']
+  \ 'typescriptreact': ['eslint', 'tsserver', 'typecheck']
   \}
 let g:ale_fixers = ['prettier']
 " let g:ale_fix_on_save = 1
@@ -224,6 +225,7 @@ let g:netrw_winsize=30
 let g:ale_linters_ignore = {
       \ 'javascript': ['tsserver'],
       \ 'javascriptreact': ['tsserver'],
+      \ 'typescriptreact': ['tsserver'],
       \}
 set shortmess=at
 set cmdheight=1
@@ -236,7 +238,7 @@ colorscheme monokai
 " let g:airline_theme = "github"
 " let g:lightline = { 'colorscheme': 'github' }
 
-"autocmd FileType typescriptreact colorscheme desert
+autocmd FileType typescriptreact colorscheme desert
 "autocmd FileType typescript colorscheme desert
 "autocmd FileType typescript.tsx colorscheme desert
 "autocmd FileType javascript colorscheme sublimemonokai
