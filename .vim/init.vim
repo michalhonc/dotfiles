@@ -15,7 +15,7 @@ call plug#begin('~/.vim/plugged')
     " Plug 'github/copilot.vim', {'branch': 'release'}
     " Linters & Type Checkers
     " Languages
-    Plug 'w0rp/ale'
+    Plug 'dense-analysis/ale'
     Plug 'jason0x43/vim-js-indent'
     Plug 'Quramy/vim-js-pretty-template'
     Plug 'andrewradev/splitjoin.vim'
@@ -170,7 +170,7 @@ let g:javascript_plugin_flow = 1
 
 set t_Co=256  " vim-monokai now only support 256 colours in terminal.
 
-let g:lightline = { 'colorscheme': 'michalhonc' }
+let g:lightline = {}
 
 let g:lightline.component_expand = {
       \  'linter_checking': 'lightline#ale#checking',
@@ -200,14 +200,17 @@ let g:lightline.active = {
 autocmd FileType qf setlocal wrap
 let g:ale_linters = {
   \ 'javascript': ['eslint'],
-  \ 'typescript': ['eslint', 'tsserver', 'typecheck']
-  \ 'typescriptreact': ['eslint', 'tsserver', 'typecheck']
+  \ 'typescript': ['eslint', 'tsserver', 'typecheck'],
+  \ 'typescriptreact': ['eslint', 'tsserver', 'typecheck'],
   \}
-let g:ale_fixers = ['prettier']
+let g:ale_fixers = ['prettier', 'eslint']
+
 " let g:ale_fix_on_save = 1
 
+let g:ale_virtualtext_cursor = 'current'
 " let g:ale_open_list = 'on_save'
 let g:ale_open_list = 0
+" let g:ale_typescript_prettier_use_local_config = 1
 " let g:ale_echo_cursor = 0
 " let g:ale_cursor_detail = 1
 let g:ale_set_highlights = 0
@@ -220,14 +223,16 @@ let g:ale_set_quickfix = 1
 " some other plugin which sets quickfix errors, etc.
 let g:ale_keep_list_window_open = 0
 let g:ale_sign_warning = '>'
+let g:ale_sign_error = '>>'
 let g:netrw_winsize=30
 " Set this in your vimrc file to disabling highlighting
-let g:ale_linters_ignore = {
-      \ 'javascript': ['tsserver'],
-      \ 'javascriptreact': ['tsserver'],
-      \ 'typescriptreact': ['tsserver'],
-      \}
-set shortmess=at
+let g:ale_linters_explicit = 1
+" let g:ale_linters_ignore = {
+"       \ 'javascript': ['tsserver'],
+"       \ 'javascriptreact': ['tsserver'],
+"       \ 'typescriptreact': ['tsserver'],
+"       \}
+" set shortmess=at
 set cmdheight=1
 
 colorscheme monokai
@@ -238,7 +243,7 @@ colorscheme monokai
 " let g:airline_theme = "github"
 " let g:lightline = { 'colorscheme': 'github' }
 
-autocmd FileType typescriptreact colorscheme desert
+" autocmd FileType typescriptreact colorscheme desert
 "autocmd FileType typescript colorscheme desert
 "autocmd FileType typescript.tsx colorscheme desert
 "autocmd FileType javascript colorscheme sublimemonokai
