@@ -99,10 +99,10 @@ _G.packer_plugins = {
     path = "/Users/michalhonc/.local/share/nvim/site/pack/packer/start/lightline.vim",
     url = "https://github.com/itchyny/lightline.vim"
   },
-  nerdtree = {
+  ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/Users/michalhonc/.local/share/nvim/site/pack/packer/start/nerdtree",
-    url = "https://github.com/scrooloose/nerdtree"
+    path = "/Users/michalhonc/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -113,6 +113,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/michalhonc/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
     url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
+  },
+  ["packer.nvim"] = {
+    loaded = true,
+    path = "/Users/michalhonc/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    url = "https://github.com/wbthomason/packer.nvim"
   },
   ["quickfix-reflector.vim"] = {
     loaded = true,
@@ -183,11 +188,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/michalhonc/.local/share/nvim/site/pack/packer/start/vim-svelte",
     url = "https://github.com/evanleck/vim-svelte"
-  },
-  ["vim-xit"] = {
-    loaded = true,
-    path = "/Users/michalhonc/.local/share/nvim/site/pack/packer/start/vim-xit",
-    url = "https://github.com/ryanolsonx/vim-xit"
   }
 }
 
