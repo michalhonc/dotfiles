@@ -1,1 +1,0 @@
-/Users/michalhonc/git/dotfiles/.vim
