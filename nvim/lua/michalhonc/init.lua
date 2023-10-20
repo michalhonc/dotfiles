@@ -6,6 +6,9 @@ require("michalhonc.plugins")
 -- Highlight non-ASCII characters with a red background in GUI and a standout effect in the terminal
 vim.cmd 'highlight nonascii guibg=Red ctermbg=1 term=standout'
 vim.cmd 'autocmd BufReadPost * syntax match nonascii "[^\\u0000-\\u007F]"'
+vim.cmd 'set autoindent'
+vim.cmd 'filetype plugin indent on'
+
 
 
 --[[

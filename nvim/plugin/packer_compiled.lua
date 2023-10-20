@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/michalhonc/.local/share/nvim/site/pack/packer/start/fzf",
     url = "https://github.com/junegunn/fzf"
   },
+  ["fzf-lua"] = {
+    loaded = true,
+    path = "/Users/michalhonc/.local/share/nvim/site/pack/packer/start/fzf-lua",
+    url = "https://github.com/ibhagwan/fzf-lua"
+  },
   ["fzf.vim"] = {
     loaded = true,
     path = "/Users/michalhonc/.local/share/nvim/site/pack/packer/start/fzf.vim",
@@ -128,6 +133,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/michalhonc/.local/share/nvim/site/pack/packer/start/splitjoin.vim",
     url = "https://github.com/andrewradev/splitjoin.vim"
+  },
+  ["text-case.nvim"] = {
+    config = { "\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rtextcase\frequire\0" },
+    loaded = true,
+    path = "/Users/michalhonc/.local/share/nvim/site/pack/packer/start/text-case.nvim",
+    url = "https://github.com/johmsalas/text-case.nvim"
+  },
+  undotree = {
+    loaded = true,
+    path = "/Users/michalhonc/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
   },
   ["vim-colors-github"] = {
     loaded = true,
@@ -192,6 +208,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: text-case.nvim
+time([[Config for text-case.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rtextcase\frequire\0", "config", "text-case.nvim")
+time([[Config for text-case.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

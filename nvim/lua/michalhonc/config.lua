@@ -6,8 +6,6 @@ vim.cmd('colorscheme monokai')
 -- Set the status line to always be visible
 vim.o.laststatus = 2
 
--- Enable filetype detection, plugins, and indentation
--- vim.cmd('filetype plugin indent on')
 
 -- Set tabstop, shiftwidth, and enable expandtab for consistent indentation
 vim.opt.tabstop = 2

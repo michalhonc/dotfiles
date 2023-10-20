@@ -2,9 +2,11 @@ require("michalhonc.plugins.nvim-tree")
 require("michalhonc.plugins.ale")
 require("michalhonc.plugins.lightline")
 require("michalhonc.plugins.fzf")
+require("michalhonc.plugins.text-case")
 
 -- nvim-treesitter configuration for context_commentstring
 require'nvim-treesitter.configs'.setup {
+    ensure_installed = { 'javascript', 'lua', 'css', 'typescript', 'html', 'json' },
     context_commentstring = {
       enable = true,
       commentary_integration = {
@@ -13,7 +15,7 @@ require'nvim-treesitter.configs'.setup {
       },
     }
   }
-  
+
 -- Git
 vim.g.EditorConfig_exclude_patterns = {'fugitive://.*'}
 

@@ -20,8 +20,8 @@ vim.g.ale_keep_list_window_open = 0
 vim.g.ale_sign_warning = '>'
 vim.g.netrw_winsize = 30
 
-vim.g.ale_linters_ignore = {
-  javascript = {'tsserver'},
-  javascriptreact = {'tsserver'},
-  typescriptreact = {'tsserver'},
-}
+-- vim.g.ale_linters_ignore = {
+--   javascript = {'tsserver'},
+--   javascriptreact = {'tsserver'},
+--   typescriptreact = {'tsserver'},
+-- }

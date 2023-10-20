@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
         run = './install --all'
     })
     use('junegunn/fzf.vim')
+    use('mbbill/undotree')
     use('ibhagwan/fzf-lua')
     use('editorconfig/editorconfig-vim')
     use('easymotion/vim-easymotion')
@@ -37,4 +38,9 @@ return require('packer').startup(function(use)
     use('cormacrelf/vim-colors-github')
     use('tpope/vim-fugitive')
     use('JoosepAlviste/nvim-ts-context-commentstring')
+    use { "johmsalas/text-case.nvim",
+      config = function()
+        require('textcase').setup {}
+      end
+    }
 end)
