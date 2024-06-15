@@ -5,6 +5,7 @@ return require('packer').startup(function(use)
 
     -- Define your plugins using Packer.nvim's use() function
     use('dense-analysis/ale')
+    use('chentoast/marks.nvim')
 
     use('jparise/vim-graphql')
     use('jason0x43/vim-js-indent')
