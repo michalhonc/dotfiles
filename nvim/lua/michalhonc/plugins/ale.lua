@@ -5,6 +5,7 @@ vim.g.ale_linters = {
   javascript = {'eslint'},
   typescript = {'eslint', 'tsserver', 'typecheck'},
   typescriptreact = {'eslint', 'tsserver', 'typecheck'},
+  dart = {'language_server'},
 }
 vim.g.ale_fixers = {'prettier'}
 
