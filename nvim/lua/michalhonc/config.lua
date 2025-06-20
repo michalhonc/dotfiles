@@ -1,7 +1,7 @@
 vim.o.shortmess = 'at'
 vim.o.cmdheight = 1
 
-vim.cmd('colorscheme monokai')
+-- vim.cmd('colorscheme monokai')
 
 -- Set the status line to always be visible
 vim.o.laststatus = 2

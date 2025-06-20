@@ -1,6 +1,6 @@
 -- Lightline configuration
 vim.g.lightline = {
-    -- colorscheme = 'michalhonc',
+    -- colorscheme = 'monokaipro',
     component_expand = {
       linter_checking = 'lightline#ale#checking',
       linter_warnings = 'lightline#ale#warnings',

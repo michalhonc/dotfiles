@@ -3,6 +3,20 @@ require("michalhonc.mappings")
 require("michalhonc.config")
 require("michalhonc.plugins")
 
+local dn = require('dark_notify')
+dn.run({
+  schemes = {
+    dark  = "monokai",
+    light = "monokai",
+  },
+})
+
+-- if vim.o.background == "light" then
+--   vim.cmd("colorscheme xcode")
+-- else
+--   vim.cmd("colorscheme xcode")
+-- end
+
 -- Highlight non-ASCII characters with a red background in GUI and a standout effect in the terminal
 vim.cmd 'highlight nonascii guibg=Red ctermbg=1 term=standout'
 vim.cmd 'autocmd BufReadPost * syntax match nonascii "[^\\u0000-\\u007F]"'
@@ -17,6 +31,7 @@ vim.cmd 'set list'
 vim.cmd 'set listchars=tab:>-'
 vim.cmd 'filetype plugin indent on'
 
+-- vim.cmd 'set rtp+=/opt/homebrew/opt/fzf'
 
 --[[
 -- NERDCommenter configuration

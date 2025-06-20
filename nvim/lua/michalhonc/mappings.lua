@@ -3,9 +3,11 @@ vim.g.mapleader = ' '
 
 -- FZF file fuzzy search that respects .gitignore
 -- If in a git directory, show only files that are committed, staged, or unstaged, else use regular :Files
-vim.keymap.set("n", "<c-P>", "<cmd>lua require('fzf-lua').git_files({ cmd = 'git ls-files --exclude-standard --others --cached' })<CR>", { silent = true })
+vim.keymap.set("n", "<c-P>", ":GitFiles --exclude-standard --others --cached<CR>", { silent = true })
 
 vim.api.nvim_set_keymap('n', '<C-E>', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
+
+
 
 -- Undo
 vim.keymap.set('n', '<C-H>', vim.cmd.UndotreeToggle)

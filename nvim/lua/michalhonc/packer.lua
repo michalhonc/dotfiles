@@ -2,6 +2,8 @@ vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    use ('arzg/vim-colors-xcode')
+    use ('cormacrelf/dark-notify')
 
     -- Define your plugins using Packer.nvim's use() function
     use('dense-analysis/ale')
