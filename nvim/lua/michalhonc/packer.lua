@@ -1,13 +1,14 @@
 vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
+    use('nvim-tree/nvim-tree.lua')
     use 'wbthomason/packer.nvim'
     use ('arzg/vim-colors-xcode')
     use ('cormacrelf/dark-notify')
 
     -- Define your plugins using Packer.nvim's use() function
-    use('dense-analysis/ale')
     use('chentoast/marks.nvim')
+    use('dense-analysis/ale')
 
     use('jparise/vim-graphql')
     use('jason0x43/vim-js-indent')
@@ -33,8 +34,8 @@ return require('packer').startup(function(use)
     use('easymotion/vim-easymotion')
     use('itchyny/lightline.vim')
     use('tpope/vim-surround')
-    use('nvim-tree/nvim-tree.lua')
     use('tpope/vim-commentary')
+    use('kchmck/vim-coffee-script')
     use('nvim-treesitter/nvim-treesitter', {
         run = ':TSUpdate'
     })

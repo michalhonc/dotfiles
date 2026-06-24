@@ -12,11 +12,11 @@ dn.run({
 })
 
 -- if vim.o.background == "light" then
---   vim.cmd("colorscheme xcode")
 -- else
 --   vim.cmd("colorscheme xcode")
 -- end
 
+vim.cmd("colorscheme monokai")
 -- Highlight non-ASCII characters with a red background in GUI and a standout effect in the terminal
 vim.cmd 'highlight nonascii guibg=Red ctermbg=1 term=standout'
 vim.cmd 'autocmd BufReadPost * syntax match nonascii "[^\\u0000-\\u007F]"'

@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Pi local state / secrets
+.pi/agent/auth.json
+.pi/agent/trust.json
+.pi/agent/bin/
+.pi/agent/sessions/

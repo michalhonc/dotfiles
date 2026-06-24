@@ -18,3 +18,17 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 
 Macos defaults
 https://macos-defaults.com/
+
+## Pi config
+
+Tracked in this repo:
+
+- `.pi`
+- `.agents`
+
+Local-only Pi state is ignored via `.gitignore`:
+
+- `.pi/agent/auth.json`
+- `.pi/agent/trust.json`
+- `.pi/agent/bin/`
+- `.pi/agent/sessions/`
