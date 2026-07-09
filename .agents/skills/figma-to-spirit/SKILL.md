@@ -61,13 +61,7 @@ For detailed API references, examples, and common mistakes:
 
 ### Deprecated Props (Still Available but Will Be Removed)
 
-- **Button/ButtonLink: `isBlock` prop** - Deprecated with no replacement. If Figma shows a full-width button, handle via layout (e.g., wrap in Flex with `alignmentX="stretch"`) or ask the user for guidance.
-
 - **UncontrolledCollapse: `hideOnCollapse` prop** - Replaced by `isDisposable`. Always use `isDisposable` instead.
-
-### Deprecated Components
-
-- **Header component** - Use `UNSTABLE_Header` instead. If you encounter "Header" in Figma or user requests, import and use the `UNSTABLE_Header` family of components.
 
 ### Already Migrated (Current Best Practices)
 
@@ -369,8 +363,8 @@ Before finalizing code:
 - \[ \] Layer names checked for size/color/variant props
 - \[ \] Spacing values read from Figma autolayout properties
 - \[ \] Color tokens read exactly from Figma layer properties
-- \[ \] **No deprecated props used** (check: isBlock, hideOnCollapse, row/column direction values)
-- \[ \] **No deprecated components used** (Header → use UNSTABLE_Header)
+- \[ \] **No deprecated props used** (check: hideOnCollapse, row/column direction values)
+- \[ \] **No deprecated components used** (check: hideOnCollapse, row/column direction values)
 
 **Layout:**
 
@@ -486,9 +480,6 @@ The rule: If CodeConnect shows `iconName="placeholder"`, your code MUST use `ico
 // CORRECT - use current direction values
 <Flex direction="horizontal" />
 <Flex direction="vertical" />
-
-// WRONG - using deprecated Button isBlock prop
-<Button isBlock>Full Width Button</Button>
 
 // CORRECT - handle full-width buttons via layout
 <Flex alignmentX="stretch">
