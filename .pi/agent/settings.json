@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.80.2",
+  "lastChangelogVersion": "0.80.3",
   "defaultProvider": "github-copilot",
-  "defaultModel": "gpt-5.4",
-  "defaultThinkingLevel": "medium",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "high",
   "collapseChangelog": true,
   "quietStartup": true,
   "enableInstallTelemetry": false,
@@ -10,8 +10,11 @@
     "showTerminalProgress": true
   },
   "hideThinkingBlock": true,
-  "theme": "iterm-classic-monokai",
+  "theme": "dark",
   "packages": [
-    "npm:my-pi-themes"
+    "npm:my-pi-themes",
+    "npm:pi-prompt-restore",
+    "git:github.com/tmustier/pi-extensions",
+    "npm:pi-warp"
   ]
 }
