@@ -1,0 +1,17 @@
+---
+name: "Worktree → pi"
+command: "wt-pi {{branch}} {{base}}"
+tags:
+  - git
+  - worktree
+  - pi
+description: >-
+  Create or reuse a git worktree for a branch (under <repo>.worktrees), copy
+  .env.local, install deps if missing, and launch pi inside it. Run from inside
+  the target repo.
+arguments:
+  - name: branch
+    description: "Branch name, existing or new (e.g. fix/dig-11779)"
+  - name: base
+    description: "Base branch when creating a NEW branch. Leave empty to branch from HEAD, or for an existing branch."
+    default: ""

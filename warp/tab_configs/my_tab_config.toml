@@ -1,0 +1,11 @@
+name = "My Tab Config"
+title = "DIG-11779"
+color = "red"
+
+[[panes]]
+id = "p1"
+type = "terminal"
+is_focused = true
+directory = "/Users/mhonc@dnanexus.com/.warp/worktrees/dig-frontend/feat/dig-11779"
+
+[params]

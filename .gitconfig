@@ -1,0 +1,12 @@
+[user]
+	email = mhonc@dnanexus.com
+	name = Michal Honc
+[push]
+	autoSetupRemote = true
+
+[includeIf "gitdir:**/michalhonc/**"]
+    path = ~/git/michalhonc/.gitconfig
+[core]
+	excludesfile = /Users/mhonc@dnanexus.com/.gitignore_global
+[pull]
+	rebase = true

@@ -1,0 +1,16 @@
+name = "Worktree: dig-frontend"
+
+[[panes]]
+commands = [
+    "git worktree add -b {{branch}} /Users/mhonc@dnanexus.com/.warp/worktrees/dig-frontend/{{branch}}",
+    "cd /Users/mhonc@dnanexus.com/.warp/worktrees/dig-frontend/{{branch}}",
+	"ni",
+	"cp ~/git/michalhonc/dig-frontend/.env.local ./.env.local"
+]
+directory = "/Users/mhonc@dnanexus.com/git/michalhonc/dig-frontend"
+id = "main"
+type = "terminal"
+
+[params.branch]
+type = "text"
+description = "Branch / worktree name"

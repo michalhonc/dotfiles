@@ -32,3 +32,16 @@ Local-only Pi state is ignored via `.gitignore`:
 - `.pi/agent/trust.json`
 - `.pi/agent/bin/`
 - `.pi/agent/sessions/`
+- `.pi/agent/npm/node_modules/` (manifest tracked, deps ignored)
+
+## Warp
+
+Warp config is tracked under `warp/` and symlinked into `~/.warp` by `setup.sh`:
+
+- `settings.toml`, `workflows/`, `tab_configs/`, `launch_configurations/`, `default_tab_configs/`
+
+Runtime state (`~/.warp/worktrees/`) is intentionally left untracked.
+
+## git
+
+- `.gitconfig` and `.gitignore_global` are symlinked into `$HOME`.

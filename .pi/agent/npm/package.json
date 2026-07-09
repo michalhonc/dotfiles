@@ -1,0 +1,9 @@
+{
+  "name": "pi-extensions",
+  "private": true,
+  "dependencies": {
+    "my-pi-themes": "^1.0.0",
+    "pi-prompt-restore": "^0.1.0",
+    "pi-warp": "^1.0.1"
+  }
+}
