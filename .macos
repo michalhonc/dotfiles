@@ -101,6 +101,9 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
+# Let Warp repeat held keys instead of using macOS press-and-hold accents
+defaults write dev.warp.Warp-Stable ApplePressAndHoldEnabled -bool false
+
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
