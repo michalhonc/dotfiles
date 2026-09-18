@@ -1,0 +1,20 @@
+---
+name: "Worktree → clean"
+command: >-
+  WT="$(git rev-parse --show-toplevel)";
+  MAIN="$(git worktree list --porcelain | head -1 | cut -d' ' -f2-)";
+  BR="$(git rev-parse --abbrev-ref HEAD)";
+  if [ "$WT" = "$MAIN" ]; then echo "Refusing: this is the main worktree"; else
+  cd "$MAIN" && git worktree remove {{force}} "$WT" && git worktree prune && echo "Removed $WT (branch $BR kept)"; fi
+tags:
+  - git
+  - worktree
+description: >-
+  Run from inside a worktree. Removes the current worktree via the main repo
+  and prunes stale metadata. Branch is kept. Use force=--force if untracked or
+  ignored files (node_modules, .env.local) block removal. Close the tab after,
+  since its cwd is gone.
+arguments:
+  - name: force
+    description: "Pass --force to remove despite untracked/ignored files"
+    default: ""

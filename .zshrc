@@ -1,6 +1,3 @@
-autoload -Uz compinit
-compinit
-
 #determines search program for fzf
 if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
@@ -14,12 +11,11 @@ export OLLAMA_HOST="http://100.126.12.68:11434"
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="apple"
 
-plugins=(B
+plugins=(
   git
   copyfile
-  copydir
+  copypath
   frontend-search
-  nvm
   macos
   z
 )
@@ -78,7 +74,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 alias k="kubectl"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-eval "$(rbenv init -)"
 alias pod='arch -x86_64 pod'
 alias gsync='git-auto-sync sync'
 alias n='v ~/git/personal/notes'
@@ -87,13 +82,25 @@ alias p='pbpaste'
 alias vconflict='v `git diff --name-only --diff-filter=U  | uniq`'
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
+# Lazy-load nvm: sourcing nvm.sh eagerly costs ~2s at shell startup.
+# node itself comes from Volta; nvm loads on first use of the `nvm` command.
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm() {
+  unfunction nvm
+  if [ -s "$NVM_DIR/nvm.sh" ]; then
+    . "$NVM_DIR/nvm.sh"
+  elif [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+    . "/opt/homebrew/opt/nvm/nvm.sh"
+  fi
+  nvm "$@"
+}
 
 # pnpm
 export PNPM_HOME="/Users/mhonc@dnanexus.com/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
 # pnpm end
 # export JAVA_HOME=$(/usr/libexec/java_home -v"11")
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"
@@ -110,9 +117,16 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 [ -f /opt/homebrew/share/forgit/forgit.plugin.zsh ] && source /opt/homebrew/share/forgit/forgit.plugin.zsh
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 
 # opencode
 export PATH=/Users/mhonc@dnanexus.com/.opencode/bin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
+
+# Pi
+export PATH="/Users/mhonc@dnanexus.com/.volta/tools/image/node/24.19.0/bin:$PATH"
+
+# Perl local::lib for albituzka tools
+export PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:$PERL5LIB}"
+
+# Secrets live outside the repo (see ~/.zshrc.secrets)
+[ -f "$HOME/.zshrc.secrets" ] && source "$HOME/.zshrc.secrets"

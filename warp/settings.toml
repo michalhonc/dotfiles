@@ -55,6 +55,7 @@ show_agent_notifications = false
 vim_mode_enabled = true
 
 [terminal]
+osc52_clipboard_access = "write_only"
 
 [terminal.input]
 alias_expansion_enabled = true
