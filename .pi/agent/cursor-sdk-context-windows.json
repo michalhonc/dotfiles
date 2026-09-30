@@ -1,0 +1,5 @@
+{
+  "contextWindows": {
+    "grok-4.7@256k:fast": 256000
+  }
+}

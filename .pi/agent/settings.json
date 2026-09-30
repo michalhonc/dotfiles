@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.85.1",
+  "lastChangelogVersion": "0.99.1",
   "defaultProvider": "anthropic",
   "defaultModel": "claude-fable-5",
   "defaultThinkingLevel": "low",
@@ -13,6 +13,7 @@
   "theme": "dark",
   "packages": [
     "npm:pi-warp",
-    "npm:pi-agent-browser-native"
+    "npm:pi-agent-browser-native",
+    "npm:pi-cursor-sdk"
   ]
 }

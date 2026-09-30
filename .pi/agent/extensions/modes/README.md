@@ -21,7 +21,7 @@ MD skills loaded upfront, prior to the first prompt.
 
 ## Bundled modes
 
-- `i-have-adhd` — default **on**, from `~/.agents/skills/i-have-adhd/SKILL.md`
+- `adhd` — default **on**, from `~/.agents/skills/adhd/SKILL.md`
 - `caveman` — default **off**, from `~/.agents/skills/caveman/SKILL.md`
 - `DNA` — default **on**, group `account`: m-honc GitHub, `JIRA_API_TOKEN`, `FIGMA_TOKEN`
 - `DIG` — default **off**, group `account`: michalhonc GitHub, `JIRA_DIGITOO_API_TOKEN` + `JIRA_DIGITOO_API_EMAIL`, `FIGMA_DIGITOO_TOKEN`
