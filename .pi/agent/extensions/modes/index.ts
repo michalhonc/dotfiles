@@ -40,6 +40,13 @@ const extensionDir = dirname(fileURLToPath(import.meta.url));
 const modesDir = join(extensionDir, "modes");
 const WIDGET_ID = "modes";
 
+/** Directories (and their subdirectories) where no mode starts enabled. */
+const NO_DEFAULTS_DIRS = [join(homedir(), "git", "michalhonc")];
+
+function defaultsDisabledFor(cwd: string): boolean {
+	return NO_DEFAULTS_DIRS.some((dir) => cwd === dir || cwd.startsWith(dir + "/"));
+}
+
 function expandPath(p: string): string {
 	if (p.startsWith("~/") || p === "~") return join(homedir(), p.slice(1));
 	return isAbsolute(p) ? p : join(modesDir, p);
@@ -337,8 +344,9 @@ export default function (pi: ExtensionAPI) {
 		// Radio groups: only the first default-on mode per group wins.
 		enabled = new Set<string>();
 		const seededGroups = new Set<string>();
+		const skipDefaults = defaultsDisabledFor(ctx.cwd);
 		for (const m of modes) {
-			if (!m.defaultOn) continue;
+			if (skipDefaults || !m.defaultOn) continue;
 			if (m.group) {
 				if (seededGroups.has(m.group)) continue;
 				seededGroups.add(m.group);
