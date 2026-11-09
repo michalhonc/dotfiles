@@ -6,3 +6,5 @@
 .pi/agent/trust.json
 .pi/agent/bin/
 .pi/agent/sessions/
+
+.pi/agent/install/
