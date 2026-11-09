@@ -48,6 +48,13 @@ for item in settings.toml workflows tab_configs launch_configurations default_ta
   link "$DOTFILES_DIR/warp/$item" "$HOME/.warp/$item"
 done
 
+# Warp key repeat: hold a key to repeat it (for example arrows in nvim),
+# not the macOS accent picker. Restart Warp after this.
+if [ "$(uname)" = "Darwin" ]; then
+  defaults write dev.warp.Warp-Stable ApplePressAndHoldEnabled -bool false
+  echo "set    Warp ApplePressAndHoldEnabled=false"
+fi
+
 if [ -d "$BACKUP_DIR" ]; then
   echo
   echo "Old files moved to $BACKUP_DIR"
