@@ -14,3 +14,4 @@ Account context for this session (Digitoo):
 - Use conventional commits and mention the Jira ticket in the message so it links to Github and Jira
 - Always get user confirmation prior git push
 - Never add ai agent commit suffix mentioning the model/harness used for this commit (like co-authored by cursor, authored by claude, etc.)
+- You can track the time spent on certain ticket in Harvest via API. There is ENV HARVEST_TOKEN and HARVEST_ACCOUNT_ID for it. Always confirm with me before you add new entry to Harvest

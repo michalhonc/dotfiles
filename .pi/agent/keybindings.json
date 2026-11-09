@@ -1,0 +1,4 @@
+{
+  "tui.editor.cursorLineStart": ["home", "ctrl+a", "super+left"],
+  "tui.editor.cursorLineEnd": ["end", "ctrl+e", "super+right"]
+}

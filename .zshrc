@@ -130,3 +130,5 @@ export PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:$PERL5LIB}"
 
 # Secrets live outside the repo (see ~/.zshrc.secrets)
 [ -f "$HOME/.zshrc.secrets" ] && source "$HOME/.zshrc.secrets"
+
+. "$HOME/.local/bin/env"

@@ -1,7 +1,14 @@
 {
-  "lastChangelogVersion": "0.99.1",
+  "lastChangelogVersion": "1.5.0",
+  "defaultTools": [
+    "+codemode"
+  ],
   "defaultProvider": "anthropic",
-  "defaultModel": "claude-fable-5",
+  "defaultModel": "claude-opus-5-5",
+  "enabledModels": [
+    "anthropic/*",
+    "github-copilot/*"
+  ],
   "defaultThinkingLevel": "low",
   "collapseChangelog": true,
   "quietStartup": true,
@@ -10,10 +17,12 @@
     "showTerminalProgress": true
   },
   "hideThinkingBlock": true,
-  "theme": "dark",
+  "theme": "system",
   "packages": [
     "npm:pi-warp",
-    "npm:pi-agent-browser-native",
-    "npm:pi-cursor-sdk"
-  ]
+    "npm:pi-agent-browser-native"
+  ],
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-agent-browser-native\",\"scope\":\"user\"}": "0.9.16"
+  }
 }
