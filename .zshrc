@@ -4,7 +4,7 @@ if type ag &> /dev/null; then
 fi
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/mhonc@dnanexus.com/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 export OLLAMA_HOST="http://100.126.12.68:11434"
 
@@ -96,7 +96,7 @@ nvm() {
 }
 
 # pnpm
-export PNPM_HOME="/Users/mhonc@dnanexus.com/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
@@ -104,12 +104,10 @@ esac
 # pnpm end
 # export JAVA_HOME=$(/usr/libexec/java_home -v"11")
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"
-export DNA_NEXUS_USER_CERTIFICATE_PATH="/Users/mhonc@dnanexus.com/mhonc.dnanexus.com+3.pem"
-export DNA_NEXUS_USER_KEY_PATH="/Users/mhonc@dnanexus.com/mhonc.dnanexus.com+3-key.pem"
 export PATH="/Users/$USER/Library/Python/3.9/bin:$PATH"
 
 # bun completions
-[ -s "/Users/mhonc@dnanexus.com/.bun/_bun" ] && source "/Users/mhonc@dnanexus.com/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -119,11 +117,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 
 # opencode
-export PATH=/Users/mhonc@dnanexus.com/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Pi
-export PATH="/Users/mhonc@dnanexus.com/.volta/tools/image/node/24.19.0/bin:$PATH"
+export PATH="$HOME/.volta/tools/image/node/24.19.0/bin:$PATH"
 
 # Perl local::lib for albituzka tools
 export PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:$PERL5LIB}"
@@ -131,4 +129,7 @@ export PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:$PERL5LIB}"
 # Secrets live outside the repo (see ~/.zshrc.secrets)
 [ -f "$HOME/.zshrc.secrets" ] && source "$HOME/.zshrc.secrets"
 
-. "$HOME/.local/bin/env"
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+# Pi
+export PATH="/Users/michalhonc/.pi/agent/bin:$PATH"
