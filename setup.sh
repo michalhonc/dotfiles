@@ -2,21 +2,53 @@
 set -euo pipefail
 
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/git/dotfiles}"
+BACKUP_DIR="$HOME/.dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
 
-mkdir -p "$HOME/.config"
+# link <source> <target>
+# Real files/folders at <target> are moved to $BACKUP_DIR first.
+# Existing symlinks are replaced.
+link() {
+  local src="$1" dst="$2"
 
-ln -sfn "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
-ln -sfn "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
-ln -sfn "$DOTFILES_DIR/oh-my-zsh.sh" "$HOME/oh-my-zsh.sh"
-ln -sfn "$DOTFILES_DIR/.pi" "$HOME/.pi"
-ln -sfn "$DOTFILES_DIR/.agents" "$HOME/.agents"
+  if [ ! -e "$src" ]; then
+    echo "skip   $dst (missing source $src)"
+    return
+  fi
+
+  if [ -L "$dst" ]; then
+    if [ "$(readlink "$dst")" = "$src" ]; then
+      echo "ok     $dst"
+      return
+    fi
+    rm "$dst"
+  elif [ -e "$dst" ]; then
+    local rel="${dst#"$HOME"/}"
+    mkdir -p "$BACKUP_DIR/$(dirname "$rel")"
+    mv "$dst" "$BACKUP_DIR/$rel"
+    echo "backup $dst -> $BACKUP_DIR/$rel"
+  fi
+
+  mkdir -p "$(dirname "$dst")"
+  ln -s "$src" "$dst"
+  echo "link   $dst -> $src"
+}
+
+link "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+link "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+link "$DOTFILES_DIR/oh-my-zsh.sh" "$HOME/oh-my-zsh.sh"
+link "$DOTFILES_DIR/.pi" "$HOME/.pi"
+link "$DOTFILES_DIR/.agents" "$HOME/.agents"
 
 # git
-ln -sfn "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
-ln -sfn "$DOTFILES_DIR/.gitignore_global" "$HOME/.gitignore_global"
+link "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
+link "$DOTFILES_DIR/.gitignore_global" "$HOME/.gitignore_global"
 
 # Warp (config only; runtime worktrees/ left untracked)
-mkdir -p "$HOME/.warp"
 for item in settings.toml workflows tab_configs launch_configurations default_tab_configs; do
-  ln -sfn "$DOTFILES_DIR/warp/$item" "$HOME/.warp/$item"
+  link "$DOTFILES_DIR/warp/$item" "$HOME/.warp/$item"
 done
+
+if [ -d "$BACKUP_DIR" ]; then
+  echo
+  echo "Old files moved to $BACKUP_DIR"
+fi
