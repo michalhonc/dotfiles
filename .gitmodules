@@ -1,0 +1,3 @@
+[submodule "rex/rex-worktrunk"]
+	path = rex/rex-worktrunk
+	url = https://github.com/haxybaxy/rex-worktrunk
