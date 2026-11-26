@@ -9,7 +9,7 @@
  * - `skill: <path>` loads the body from an external SKILL.md (frontmatter
  *   stripped, `~` expanded). Any body in the mode file itself is included too.
  * - Press ctrl+q or run /modes to open the toggle menu (space: toggle,
- *   tab: preview, enter: apply, esc: cancel).
+ *   a: select all, c: clear all, tab: preview, enter: apply, esc: cancel).
  * - Each enabled mode is injected exactly once per session (on the next
  *   message sent after it was enabled). Disabling an already-injected mode
  *   cannot retract it; tell the model to stop instead.
@@ -256,7 +256,7 @@ export default function (pi: ExtensionAPI) {
 						content = v.out;
 						listScroll = v.scroll;
 						title = "Modes";
-						hints = "↑↓ navigate • Space toggle • Tab preview • Enter apply • Esc cancel";
+						hints = "↑↓ navigate • Space toggle • a all • c clear • Tab preview • Enter apply • Esc cancel";
 					} else {
 						const m = items[cursor];
 						const rows = buildPreviewRows(m, width);
@@ -304,6 +304,24 @@ export default function (pi: ExtensionAPI) {
 								}
 								working.add(item.id);
 							}
+							tui.requestRender();
+						} else if (data === "a" || data === "A") {
+							const coveredGroups = new Set<string>();
+							for (const m of items) {
+								if (m.group && working.has(m.id)) coveredGroups.add(m.group);
+							}
+							for (const m of items) {
+								if (!m.group) {
+									working.add(m.id);
+								} else if (!coveredGroups.has(m.group)) {
+									const preferred = items.find((o) => o.group === m.group && o.defaultOn) ?? m;
+									working.add(preferred.id);
+									coveredGroups.add(m.group);
+								}
+							}
+							tui.requestRender();
+						} else if (data === "c" || data === "C") {
+							working.clear();
 							tui.requestRender();
 						} else if (matchesKey(data, Key.tab)) {
 							mode = "preview";

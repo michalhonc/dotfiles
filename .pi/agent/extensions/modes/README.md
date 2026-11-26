@@ -16,7 +16,7 @@ MD skills loaded upfront, prior to the first prompt.
 - Inside `~/git/michalhonc` (and subfolders) all modes start unchecked,
   ignoring `default: on` (see `NO_DEFAULTS_DIRS` in `index.ts`).
 - Press **ctrl+q** or run **/modes** to open the toggle menu
-  (space: toggle, tab: preview, enter: apply, esc/ctrl+q: hide).
+  (space: toggle, a: select all, c: clear all, tab: preview, enter: apply, esc/ctrl+q: hide).
 - Each enabled mode is injected once per session, on the next message after
   it was enabled (`✓` marks already-sent modes). Disabling an injected mode
   can't retract it — tell the model to stop instead.
