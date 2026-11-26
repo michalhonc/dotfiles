@@ -2,7 +2,9 @@
   "name": "pi-extensions",
   "private": true,
   "dependencies": {
-    "pi-agent-browser-native": "^0.9.18",
+    "@earendil-works/pi-voice": "^0.2.0",
+    "pi-agent-browser-native": "^0.9.46",
+    "pi-autoresearch": "^1.9.0",
     "pi-warp": "^1.0.1"
   }
 }

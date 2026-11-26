@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "backend": {
+    "type": "transcribe-cpp"
+  },
+  "shortcut": "ctrl+alt+z",
+  "preferredLanguages": [
+    "en"
+  ],
+  "transcriptionLanguage": "en",
+  "chineseOutput": "simplified",
+  "microphone": {
+    "type": "device",
+    "name": "MacBook Pro Microphone",
+    "occurrence": 0
+  },
+  "voiceActivityDetection": true,
+  "longformChunking": true,
+  "model": {
+    "source": "catalog",
+    "id": "parakeet-unified-en-0.6b",
+    "path": "/Users/mhonc@dnanexus.com/.cache/huggingface/hub/models--handy-computer--parakeet-unified-en-0.6b-gguf/snapshots/7e948f21b7bdbac698d3318db9d350f1096f3b6c/parakeet-unified-en-0.6b-Q8_0.gguf"
+  }
+}

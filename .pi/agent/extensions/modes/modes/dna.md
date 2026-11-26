@@ -9,7 +9,7 @@ group: account
 Account context for this session (DNAnexus):
 
 - GitHub: use the `m-honc` account.
-- Jira: the API token is in the `JIRA_API_TOKEN` env variable.
+- Jira: the API token is in the `JIRA_API_TOKEN` env variable and `JIRA_API_URL` URL. Reload zshrc if it doesnt work.
 - Figma: the token is in the `FIGMA_TOKEN` env variable.
 - Use commit messages in form `[JIRA_TICKET] brief message in plain english`
 - Always get user confirmation prior git push

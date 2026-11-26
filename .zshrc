@@ -3,13 +3,16 @@ if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
 fi
 
+# Skip compaudit permission scan on every shell start (~20ms)
+ZSH_DISABLE_COMPFIX=true
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 export OLLAMA_HOST="http://100.126.12.68:11434"
 
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="apple"
+ZSH_THEME="apple-async"  # ~/.oh-my-zsh/custom/themes, async git info
 
 plugins=(
   git
@@ -36,35 +39,6 @@ alias cc="claude"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-get_git_title() {
-  # 1. Get the path to the main/common .git directory
-  local common_dir=$(git rev-parse --git-common-dir 2>/dev/null)
-
-  # If not in a git repo, just return the current folder name
-  if [[ -z "$common_dir" ]]; then
-    echo -n "$(basename "$PWD")"
-    return
-  fi
-
-  # 2. Get the "True" Repo Name
-  # If common_dir is just ".git", we are in the main repo root. 
-  # If it's a path, we follow it to the main repo folder.
-  local repo_root=$(builtin cd "$common_dir/.." && pwd)
-  local repo_name=$(basename "$repo_root")
-
-  # 3. Get the Current Branch
-  local branch=$(git branch --show-current 2>/dev/null)
-
-  echo -n "${repo_name}:${branch}"
-}
-
-set_iterm_title() {
-  echo -ne "\e]1;$(get_git_title)\a"
-}
-
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd set_iterm_title
-add-zsh-hook preexec set_iterm_title
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator

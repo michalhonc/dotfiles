@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.5.0",
+  "lastChangelogVersion": "1.6.1",
   "defaultTools": [
     "+codemode"
   ],
@@ -19,10 +19,15 @@
   "hideThinkingBlock": true,
   "theme": "system",
   "packages": [
-    "npm:pi-warp",
-    "npm:pi-agent-browser-native"
+    "npm:pi-agent-browser-native",
+    "npm:@earendil-works/pi-voice",
+    "npm:pi-autoresearch"
   ],
   "extensionChangelogVersions": {
-    "{\"source\":\"npm:pi-agent-browser-native\",\"scope\":\"user\"}": "0.9.18"
+    "{\"source\":\"npm:pi-agent-browser-native\",\"scope\":\"user\"}": "0.9.46",
+    "{\"source\":\"npm:pi-autoresearch\",\"scope\":\"user\"}": "1.9.0"
+  },
+  "warnings": {
+    "anthropicExtraUsage": false
   }
 }
